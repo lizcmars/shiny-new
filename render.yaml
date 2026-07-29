@@ -1,0 +1,24 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+# Hosts the camp registration front door as a free static site.
+# The whole page is a single self-contained index.html, so there is nothing
+# to build — Render just serves the file.
+services:
+  - type: web
+    name: ayf-camp-registration
+    runtime: static
+    buildCommand: "echo 'Static site — nothing to build'"
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: true
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+    routes:
+      # Any unknown path falls back to the one-page front door.
+      # Render serves real files first, so this only catches non-file paths.
+      - type: rewrite
+        source: /*
+        destination: /index.html
