@@ -43,10 +43,11 @@ under the site's **Settings → Custom Domains**.
 
 ## Collecting real leads
 
-Today the form saves each lead in the visitor's browser (`localStorage`) so
-nothing is lost during a demo. A static host cannot run server code, so to
-route real submissions somewhere, wire the form to an endpoint. In
-`index.html`, find the comment `--- WIRE UP HERE ---` and either:
+The form is in **demo mode**: it validates and shows the confirmation, but
+nothing is stored or sent anywhere yet. A static host cannot run server code,
+so to route real submissions somewhere, wire the form to an endpoint. In
+`index.html`, find the comment `DEMO MODE — not collecting input yet` and
+either:
 
 - POST to a form service (Formspree, Getform, Basin), or
 - POST to your CRM / email tool / registration platform API, or

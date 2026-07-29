@@ -657,20 +657,16 @@
       return;
     }
 
-    var lead = {camperName:name, camperAge:age, email:email, camp:camp, when:new Date().toISOString()};
-
-    /* --- WIRE UP HERE ---------------------------------------------------
-       Send `lead` to your CRM, email tool, or registration platform.
+    /* DEMO MODE — not collecting input yet -------------------------------
+       The form validates and shows the confirmation below, but nothing is
+       stored or sent anywhere. When you are ready to collect real leads,
+       POST `lead` to your form service, CRM, or registration platform here.
        Example:
          fetch('/api/leads', {method:'POST',
            headers:{'Content-Type':'application/json'}, body:JSON.stringify(lead)});
-       Until that endpoint exists, we keep the lead in the browser so nothing
-       is lost during a demo. ------------------------------------------- */
-    try {
-      var saved = JSON.parse(localStorage.getItem('ayf_leads') || '[]');
-      saved.push(lead);
-      localStorage.setItem('ayf_leads', JSON.stringify(saved));
-    } catch (err) {}
+       ------------------------------------------------------------------ */
+    var lead = {camperName:name, camperAge:age, email:email, camp:camp};
+    void lead; // intentionally unused while in demo mode
 
     var first = name.split(' ')[0];
     document.getElementById('successName').textContent = first + ' is on the list!';
