@@ -1,13 +1,21 @@
 # Camp registration front door
 
-A single-page front door for **Camp Miniwanca** and **Camp Merrowvista** —
-American Youth Foundation summer camps. It welcomes families and captures a
-short lead (camper name, age, camp, parent email) in about a minute, then
-hands off to follow-up.
+A front door for **Camp Miniwanca** and **Camp Merrowvista** — American Youth
+Foundation summer camps. It welcomes families and captures a short lead
+(camper name, age, camp, parent email) in about a minute, then hands off to
+follow-up.
 
-The entire page is one self-contained file, [`index.html`](index.html):
-all CSS, JavaScript, and the logo are inlined, so it works anywhere that can
-serve a static file — no build step, no asset paths.
+There are three versions, each a single self-contained file (all CSS,
+JavaScript, and the logo are inlined — no build step, no asset paths):
+
+| Page | File | What it is |
+|------|------|------------|
+| Both camps | [`index.html`](index.html) | Bright summer look, green buttons, families choose a camp in the form. |
+| Camp Miniwanca | [`miniwanca/index.html`](miniwanca/index.html) | Blue-themed, single camp, no camp picker. |
+| Camp Merrowvista | [`merrowvista/index.html`](merrowvista/index.html) | Teal-themed, single camp, no camp picker. |
+
+The single-camp pages drop the "which camp?" step and lead with that camp's
+color and content.
 
 ## Run it locally
 
@@ -22,24 +30,31 @@ python3 -m http.server 8080
 
 ### Option A — Blueprint (uses `render.yaml`)
 
+The blueprint publishes all three as separate free static sites:
+`ayf-camp-registration` (both camps), `camp-miniwanca`, and `camp-merrowvista`.
+
 1. Make sure this repo is on GitHub and the branch you want is pushed.
 2. In the [Render dashboard](https://dashboard.render.com), click
    **New → Blueprint**.
-3. Connect this repository. Render reads `render.yaml` and proposes a static
-   site named `ayf-camp-registration`.
-4. Pick the branch to deploy, then click **Apply**.
+3. Connect this repository. Render reads `render.yaml` and proposes the sites.
+4. Pick the branch to deploy, then click **Apply**. Delete any of the three
+   services you do not want before applying.
 
 ### Option B — Static Site (point and click)
 
 1. Render dashboard → **New → Static Site**, connect this repo.
 2. **Branch:** the branch you want to publish.
 3. **Build command:** leave empty.
-4. **Publish directory:** `.` (the repo root).
-5. Click **Create Static Site**.
+4. **Publish directory:** `.` for both camps, `miniwanca` for the Miniwanca
+   page, or `merrowvista` for the Merrowvista page.
+5. Click **Create Static Site**. Repeat for each version you want live.
 
 Either way, Render gives you a free `https://<name>.onrender.com` URL with
 automatic HTTPS, and redeploys on every push. You can add a custom domain
-under the site's **Settings → Custom Domains**.
+(for example a dedicated one per camp) under **Settings → Custom Domains**.
+
+The both-camps site also serves the single-camp pages at `/miniwanca/` and
+`/merrowvista/`, so you can share those paths without a second deploy.
 
 ## Collecting real leads
 
