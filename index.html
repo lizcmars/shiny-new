@@ -427,6 +427,12 @@
             </div>
           </div>
 
+          <div class="field" id="f-phone">
+            <label for="phone">Mobile phone <span class="opt">optional, for text updates</span></label>
+            <input id="phone" name="phone" type="tel" inputmode="tel"
+              autocomplete="tel" placeholder="(555) 123-4567" />
+          </div>
+
           <button type="submit" class="submit">Save our spot</button>
           <p class="fineprint">By sending this you agree we may contact you about camp.
             No spam, and no payment now.</p>
@@ -655,6 +661,7 @@
     var name  = document.getElementById('camperName').value.trim();
     var age   = document.getElementById('camperAge').value;
     var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
     var camp  = campInput.value;
     var ok = true;
 
@@ -680,7 +687,7 @@
          fetch('/api/leads', {method:'POST',
            headers:{'Content-Type':'application/json'}, body:JSON.stringify(lead)});
        ------------------------------------------------------------------ */
-    var lead = {camperName:name, camperAge:age, email:email, camp:camp};
+    var lead = {camperName:name, camperAge:age, email:email, phone:phone, camp:camp};
     void lead; // intentionally unused while in demo mode
 
     var first = name.split(' ')[0];
