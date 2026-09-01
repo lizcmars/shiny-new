@@ -263,6 +263,19 @@
     justify-content:center; gap:9px; transition:transform .15s ease, filter .15s ease}
   .camp .pick:hover{transform:translateY(-1px); filter:brightness(1.06)}
 
+  #sessions{background:var(--page); border-top:1px solid var(--line)}
+  .sessions{display:grid; grid-template-columns:1fr 1fr; gap:26px; max-width:900px; margin:0 auto}
+  .ses{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg);
+    overflow:hidden; box-shadow:var(--shadow)}
+  .ses-head{background:var(--ses,#2756A0); color:#fff; font-family:var(--h); font-weight:700;
+    font-size:1.12rem; padding:14px 24px; text-align:center; letter-spacing:.01em}
+  .ses ul{list-style:none; margin:0; padding:6px 24px 18px}
+  .ses li{display:flex; justify-content:space-between; gap:16px; align-items:baseline;
+    padding:14px 0; border-bottom:1px solid var(--line)}
+  .ses li:last-child{border-bottom:none}
+  .ses .wk{font-family:var(--h); font-weight:700; font-size:.95rem; color:var(--text); white-space:nowrap}
+  .ses .dt{color:var(--text-soft); font-size:.95rem; font-variant-numeric:tabular-nums; text-align:right}
+
   #next{background:var(--surface-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
   .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:26px}
   .step{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:28px 26px}
@@ -367,8 +380,8 @@
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E63C4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Financial aid available</li>
         </ul>
         <div class="hero-facts">
-          <span>Rising grades 4–12</span>
-          <span>Sessions: 1, 2, 3, and 5 weeks</span>
+          <span>Ages 8–18, grades 3–12</span>
+          <span>Two sessions, 1 to 3 weeks</span>
           <span>Shelby, Michigan</span>
         </div>
       </div>
@@ -443,14 +456,42 @@
               <span class="pill">Four Trails Adventure · grades 8–12</span>
             </div>
             <ul class="facts">
-              <li><span class="k">Ages</span><span class="v">Rising grades 4–12</span></li>
-              <li><span class="k">Sessions</span><span class="v">1, 2, 3, and 5 weeks</span></li>
-              <li><span class="k">When</span><span class="v">Mid-June – mid-August</span></li>
+              <li><span class="k">Ages</span><span class="v">8–18, grades 3–12</span></li>
+              <li><span class="k">Sessions</span><span class="v">Session A or B, 1 to 3 weeks</span></li>
+              <li><span class="k">When</span><span class="v">June 27 – August 6, 2027</span></li>
               <li><span class="k">Setting</span><span class="v">Lakefront and dunes</span></li>
             </ul>
             <a class="pick" href="#signup">Save your spot at Miniwanca</a>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="sessions" aria-label="2027 session dates" style="--ses:#2E63C4">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Summer 2027</p>
+        <h2>Session dates</h2>
+        <p>Pick Session A or Session B, for one, two, or three weeks.</p>
+      </div>
+      <div class="sessions">
+        <div class="ses">
+          <div class="ses-head">Session A</div>
+          <ul>
+            <li><span class="wk">One week</span><span class="dt">June 27 – July 3, 2027</span></li>
+            <li><span class="wk">Two weeks</span><span class="dt">July 4 – July 16, 2027</span></li>
+            <li><span class="wk">Three weeks</span><span class="dt">June 27 – July 16, 2027</span></li>
+          </ul>
+        </div>
+        <div class="ses">
+          <div class="ses-head">Session B</div>
+          <ul>
+            <li><span class="wk">One week</span><span class="dt">July 18 – July 24, 2027</span></li>
+            <li><span class="wk">Two weeks</span><span class="dt">July 25 – August 6, 2027</span></li>
+            <li><span class="wk">Three weeks</span><span class="dt">July 18 – August 6, 2027</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
