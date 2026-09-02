@@ -1,0 +1,64 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+# Publishes three free static sites from this one repo. Each page is a single
+# self-contained index.html, so there is nothing to build — Render serves the file.
+#
+#   ayf-camp-registration  ->  .            both camps (index.html)
+#   camp-miniwanca         ->  ./miniwanca  Camp Miniwanca only
+#   camp-merrowvista       ->  ./merrowvista Camp Merrowvista only
+#
+# You do not have to deploy all three. Delete the services you do not want,
+# or set one up by hand as a Static Site (see README).
+services:
+  - type: web
+    name: ayf-camp-registration
+    runtime: static
+    buildCommand: "echo 'Static site — nothing to build'"
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: true
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  - type: web
+    name: camp-miniwanca
+    runtime: static
+    buildCommand: "echo 'Static site — nothing to build'"
+    staticPublishPath: ./miniwanca
+    pullRequestPreviewsEnabled: true
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  - type: web
+    name: camp-merrowvista
+    runtime: static
+    buildCommand: "echo 'Static site — nothing to build'"
+    staticPublishPath: ./merrowvista
+    pullRequestPreviewsEnabled: true
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
